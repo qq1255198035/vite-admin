@@ -5,9 +5,9 @@
   .el-container{
     height: 100%;
     .el-main{
+      overflow: hidden;
       > div{
         height: 100%;
-        overflow: hidden;
       }
     }
     .global-header{
