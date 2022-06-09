@@ -1,0 +1,46 @@
+@import '@/assets/styles/mixin.scss';
+.common-layout{
+  color: var(--color-primary);
+  height: 100%;
+  .el-container{
+    height: 100%;
+    .el-main{
+      > div{
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+    .global-header{
+      height: 100%;
+      @include flex-direction-style($justify-content: flex-end);
+      @include border-style(bottom);
+      .full-screen{
+        @include flex-direction-style();
+        cursor: pointer;
+      }
+      .user-ceter{
+        @include flex-direction-style();
+        .el-dropdown{
+          cursor: pointer;
+          margin-left: 10px;
+          .el-dropdown-link{
+            @include flex-direction-style();
+          }
+        }
+      }
+    }
+    .global-footer{
+      height: 100%;
+      @include flex-direction-style();
+      @include border-style(top)
+    }
+    .aside{
+      height: 100%;
+      @include border-style(right)
+    }
+    .main-logo{
+      @include flex-direction-style();
+      padding: 22px 28px;
+    }
+  }
+}

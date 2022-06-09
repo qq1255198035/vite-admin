@@ -1,0 +1,20 @@
+@mixin border-style($direction: all, $width: 1px, $style: solid, $color: var(--el-border-color)) {
+  @if $direction == top {
+    border-top: $width $style $color
+  } @else if $direction == bottom {
+    border-bottom: $width $style $color
+  } @else if $direction == left {
+    border-left: $width $style $color
+  } @else if $direction == right {
+    border-right: $width $style $color
+  } @else {
+    border: $width $style $color
+  }
+}
+
+@mixin flex-direction-style($direction: row, $justify-content: center, $align-items: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
