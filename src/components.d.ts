@@ -6,6 +6,8 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Aside: typeof import('./components/layout/Aside/index.tsx')['default']
+    Collapse: typeof import('./components/layout/GlobalHeader/components/Collapse/index.tsx')['default']
+    DragBar: typeof import('./components/common/DragBar/index.tsx')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']

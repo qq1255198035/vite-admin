@@ -12,8 +12,11 @@
     }
     .global-header{
       height: 100%;
-      @include flex-direction-style($justify-content: flex-end);
+      @include flex-direction-style($justify-content: space-between);
       @include border-style(bottom);
+      > div{
+        @include flex-direction-style();
+      }
       .full-screen{
         @include flex-direction-style();
         cursor: pointer;
@@ -34,9 +37,29 @@
       @include flex-direction-style();
       @include border-style(top)
     }
-    .aside{
-      height: 100%;
-      @include border-style(right)
+    .el-aside {
+      position: relative;
+      // transition: width 0.3s ease;
+      overflow: visible;
+      .aside{
+        height: 100%;
+      }
+      .side-drag-bar {
+        position: absolute;
+        @include border-style(right);
+        right: -4px;
+        top: 0;
+        z-index: 5;
+        box-sizing: border-box;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 8px;
+        height: 100%;
+        margin-left: -1px;
+        &:hover {
+          cursor: col-resize;
+        }
+      }
     }
     .main-logo{
       @include flex-direction-style();

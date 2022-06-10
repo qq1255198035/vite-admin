@@ -7,10 +7,6 @@ export const menuProps = {
 		type: Array as PropType<menuData>,
 		default: () => []
 	},
-	collapsed: {
-		type: Boolean,
-		default: false
-	},
 	syncActive: {
 		type: Boolean,
 		default: true

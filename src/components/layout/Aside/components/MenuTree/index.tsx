@@ -1,13 +1,15 @@
-import { defineComponent, toRefs, ref, watch, reactive } from 'vue'
-import {useRoute} from 'vue-router';
 import { menuProps, TreeProps } from './menutree-type'
 import renderMenuTree from './renderMenuTree'
+import { systemInfoStore } from '@/store'
+import { storeToRefs } from 'pinia'
 export default defineComponent({
   name: 'MenuTree',
   props: menuProps,
-  setup(props: TreeProps, context) {
+  setup(props: TreeProps) {
+    const systemInfo = systemInfoStore()
+    const { isCollapse } = storeToRefs(systemInfo)
     const route = useRoute();
-    const { collapsed, syncActive, menu } = toRefs(props);
+    const { syncActive, menu } = toRefs(props);
     const selectedKey = ref('')
     watch(
       () => route.path,
@@ -16,10 +18,8 @@ export default defineComponent({
         selectedKey.value = newPath
       }
     )
-
     const wrapProps = reactive({
       props: {
-        collapse: collapsed,
         router: true,
         uniqueOpened: true,
         collapseTransition: false,
@@ -35,7 +35,7 @@ export default defineComponent({
     return () => {  
       return (
         <div>
-          <el-menu {...wrapProps.props} style={{...wrapProps.style}}>
+          <el-menu { ...wrapProps.props } collapse={ isCollapse.value } style={{...wrapProps.style}}>
             { renderMenuTree(menu.value) }
           </el-menu>
         </div>

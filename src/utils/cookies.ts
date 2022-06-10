@@ -6,3 +6,7 @@ export const setToken = (token: string) => sessionStorage.setItem(TokenKey, toke
 
 export const removeToken = () => sessionStorage.removeItem(TokenKey)
 
+export const getSideWidth = () => sessionStorage.getItem('sideWidth')
+
+export const setSideWidth = (width: string) => sessionStorage.setItem('sideWidth', width)
+
