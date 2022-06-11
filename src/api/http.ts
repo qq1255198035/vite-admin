@@ -1,7 +1,7 @@
-import axios, { AxiosError } from 'axios'
+import axios, { AxiosError, AxiosResponse } from 'axios'
 import { ElMessage } from 'element-plus'
 import { getToken } from '@/utils/cookies'
-import { ICodeMessage } from './axios-types'
+import { ICodeMessage, IResponse } from './axios-types'
 
 const http = axios.create({
 	baseURL: import.meta.env.VITE_BASE_URL,

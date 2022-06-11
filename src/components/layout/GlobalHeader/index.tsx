@@ -1,4 +1,3 @@
-import { defineComponent } from 'vue'
 export default defineComponent({
   setup() {
     return () => {
@@ -6,6 +5,7 @@ export default defineComponent({
         <div class="global-header">
           <div>
             <Collapse />
+            <BreadCrumb class="ml-2"/>
           </div>
           <div>
             <FullScreenCom />
@@ -14,7 +14,6 @@ export default defineComponent({
             <el-divider direction="vertical" />
             <User class="ml-2" />
           </div>
-          
         </div>
       )
     }

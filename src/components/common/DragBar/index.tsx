@@ -53,11 +53,11 @@ export default defineComponent({
       const moved = localWidth.value + (e.clientX - clientX.value)
 
       if (moved > MAX_SIDE_WIDTH) {
-        systemInfo.setSideWith(MAX_SIDE_WIDTH)
+        systemInfo.setSideWidth(MAX_SIDE_WIDTH)
       } else if (moved < MIN_SIDE_WIDTH) {
-        systemInfo.setSideWith(MIN_SIDE_WIDTH)
+        systemInfo.setSideWidth(MIN_SIDE_WIDTH)
       } else {
-        systemInfo.setSideWith(moved)
+        systemInfo.setSideWidth(moved)
       }
     }
 

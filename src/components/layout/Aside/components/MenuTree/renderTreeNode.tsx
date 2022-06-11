@@ -1,24 +1,29 @@
 import { IMenuItem, menuData } from '@/types/sys'
+import { systemInfoStore } from '@/store'
+
 const isHttpLink = (key: string) => {
   const httpLink = /^https?:\/\//.test(key);
   return httpLink
 }
 
+const systemInfo = systemInfoStore()
+
+
 const handleMenuItemClick = (item: IMenuItem) => {
   console.log(item)
-  // this.$store.commit('app/updateBreadList', item)
+  systemInfo.updateBreadList(item)
 }
 
 const menuItemNode = (item: IMenuItem) => {
   const { key, title, icon } = item;
   const menuItemNode = !isHttpLink(key) ? (
     <>
-      {icon && <i class={icon} />}
+      {icon && (<el-icon>{h(resolveComponent(icon))}</el-icon>)}
       <span title={title}>{title}</span>
     </>
   ) : (
     <a href={key} title={title} target="_blank">
-      {icon && <i class={icon} />}
+      {icon && (`<el-icon><${icon} /></el-icon>`)}
       <span>{item.title}</span>
     </a>
   );
@@ -26,12 +31,18 @@ const menuItemNode = (item: IMenuItem) => {
 }
   
 const renderTreeNode = (item: IMenuItem, fun: (arr: menuData) => {}) => {
-  let { key, title } = item;
+  let { key, title, icon } = item;
   key = key ?? '';
   if (Array.isArray(item.children)) {
     return (
-      <el-sub-menu index={ key } v-slots={{ title: () => <span>{ title }</span>}}>
-        {menuItemNode(item)}
+      <el-sub-menu index={key} v-slots={
+        {
+          title: () => (
+            <>
+              {icon && (<el-icon>{h(resolveComponent(icon))}</el-icon>)}<span>{title}</span>
+            </>
+        ) }
+      }>
         {fun(item.children)}
       </el-sub-menu>
     );

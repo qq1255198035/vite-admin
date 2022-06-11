@@ -1,5 +1,4 @@
 import { useDark, useToggle } from '@vueuse/core'
-import { defineComponent } from 'vue'
 const isDark = useDark()
 const changeTheme = useToggle(isDark)
 export default defineComponent({

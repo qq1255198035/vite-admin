@@ -1,3 +1,5 @@
+import { systemInfoStore } from '@/store'
+const systemInfo = systemInfoStore()
 const User = () => {
   return (
     <div class="user-ceter">
@@ -6,7 +8,7 @@ const User = () => {
           dropdown: () => (
             <el-dropdown-menu>
               <el-dropdown-item icon="Refresh">清除缓存</el-dropdown-item>
-              <el-dropdown-item icon="SwitchButton">退出</el-dropdown-item>
+              <el-dropdown-item icon="SwitchButton" onClick={() => systemInfo.loginOut()}>退出</el-dropdown-item>
             </el-dropdown-menu>
           )
         }}>

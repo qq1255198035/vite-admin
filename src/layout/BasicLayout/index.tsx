@@ -1,10 +1,9 @@
-import { defineComponent, reactive, watch, Transition, KeepAlive, createVNode } from 'vue'
-import { useRoute } from 'vue-router'
+import { Transition, KeepAlive, createVNode } from 'vue'
+
 import { IRouterViewSlot } from '@/types/sys'
 import { systemInfoStore } from '@/store'
 import { storeToRefs } from 'pinia'
 import './index.scss'
-
 
 export default defineComponent({
   name: 'layout',

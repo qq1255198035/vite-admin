@@ -1,10 +1,10 @@
 export default defineComponent({
-  name: 'home',
+  name: '404',
   setup() {
     return () => {
       return (
         <div>
-          Home 222 555555  33
+          404
         </div>
       )
     }

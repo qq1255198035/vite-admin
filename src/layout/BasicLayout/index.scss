@@ -31,6 +31,15 @@
           }
         }
       }
+      .breadcrumb-box{
+        .el-breadcrumb__inner{
+          @include flex-direction-style();
+          .breadcrumb-span{
+            @include flex-direction-style();
+            cursor: pointer;
+          }
+        }
+      }
     }
     .global-footer{
       height: 100%;
@@ -63,7 +72,11 @@
     }
     .main-logo{
       @include flex-direction-style();
-      padding: 22px 28px;
+      @include border-style(bottom);
+      padding: 7px 0;
+      img{
+        height: 45px;
+      }
     }
   }
 }
