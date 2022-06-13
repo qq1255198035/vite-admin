@@ -57,6 +57,7 @@ export const systemInfoStore = defineStore('system', {
 		},
 		setSideWidth(num: number) {
 			this.sideWidth = num
+			setSideWidth(num.toString())
 		},
 		loginOut() {
 			removeToken()
@@ -69,9 +70,9 @@ export const systemInfoStore = defineStore('system', {
 			const { statusCode, data } = await loginIn(params)
 			if (statusCode === 200) {
 				await this.setMenuList(data)
-				this.token = data
-				setSideWidth(MIN_SIDE_WIDTH.toString())
+				this.setSideWidth(MIN_SIDE_WIDTH)
 				setToken(data)
+				this.token = data
 				router.push('/home')
 			}
 		},

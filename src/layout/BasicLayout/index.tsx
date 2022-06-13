@@ -26,8 +26,8 @@ export default defineComponent({
         <div class="common-layout">
           <el-container>
             <el-aside width={isCollapse.value ? '64px' : sideWidth.value + 'px'}>
-              <Aside />
-              <DragBar v-drag={sideWidth.value} />
+              <Aside v-drag={(val: number) => console.log(val)} />
+              <DragBar />
             </el-aside>
             <el-container>
               <el-header>

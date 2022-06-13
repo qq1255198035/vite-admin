@@ -64,8 +64,3 @@ export default defineComponent({
     return () => <div class="side-drag-bar" {...attrs} onMousedown={(e) => onMouseDown(e)}></div>
   }
 })
-
-    
-
-
-

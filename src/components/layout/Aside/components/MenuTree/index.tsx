@@ -9,28 +9,17 @@ export default defineComponent({
     const systemInfo = systemInfoStore()
     const { isCollapse } = storeToRefs(systemInfo)
     const route = useRoute();
-    const { syncActive, menu } = toRefs(props);
-    const selectedKey = ref('')
-    watch(
-      () => route.path,
-      async newPath => {
-        console.log(newPath)
-        selectedKey.value = newPath
-      }
-    )
+    const { menu } = toRefs(props);
+    
     const wrapProps = reactive({
       props: {
         router: true,
         uniqueOpened: true,
         collapseTransition: false,
-        defaultActive: ''
+        defaultActive: route.name
       },
       style: { borderRight: 'none', height: '100%' }
     })
-
-    if (syncActive) {
-      wrapProps.props.defaultActive = selectedKey.value;
-    }
 
     return () => {  
       return (

@@ -6,10 +6,6 @@ export const menuProps = {
 	menu: {
 		type: Array as PropType<menuData>,
 		default: () => []
-	},
-	syncActive: {
-		type: Boolean,
-		default: true
 	}
 } as const
 
