@@ -35,7 +35,6 @@ const Vdrag = (app: App<Element>) => {
     }
   })
 }
-
 export default {
   install: (app: App<Element>) => {
     Vdrag(app)
