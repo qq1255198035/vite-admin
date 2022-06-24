@@ -1,9 +1,9 @@
 export interface ICodeMessage {
-	[key: number]: string
+  [key: number]: string
 }
 
 export interface IResponse<T> {
-	data: T
-	statusCode: number
-	msg: string
+  data: T
+  statusCode: number
+  msg: string
 }

@@ -1,12 +1,8 @@
 export default defineComponent({
-  name: 'components',
+  name: 'Components',
   setup() {
     return () => {
-      return (
-        <div>
-          Components
-        </div>
-      )
+      return <div>Components</div>
     }
   }
 })

@@ -1,7 +1,7 @@
 import { systemInfoStore } from '@/store'
 import './index.scss'
 export default defineComponent({
-  name: 'login',
+  name: 'Login',
   setup() {
     const systemInfo = systemInfoStore()
     const form = reactive({
@@ -23,7 +23,9 @@ export default defineComponent({
                 <el-input v-model={form.password} />
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" onClick={() => onSubmit()}>登录</el-button>
+                <el-button type="primary" onClick={() => onSubmit()}>
+                  登录
+                </el-button>
               </el-form-item>
             </el-form>
           </div>

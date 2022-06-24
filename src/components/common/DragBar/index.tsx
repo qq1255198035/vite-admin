@@ -12,9 +12,9 @@ export default defineComponent({
     const systemInfo = systemInfoStore()
     const { sideWidth, isCollapse } = storeToRefs(systemInfo)
 
-    let clientX = ref(0)
-    let cursorDown = ref(false)
-    let localWidth = ref(sideWidth.value)
+    const clientX = ref(0)
+    const cursorDown = ref(false)
+    const localWidth = ref(sideWidth.value)
 
     const onMouseDown = (e: MouseEvent) => {
       if (e.ctrlKey || e.button === 2) {
@@ -37,14 +37,14 @@ export default defineComponent({
       cursorDown.value = false
       localWidth.value = sideWidth.value
       setSideWidth(sideWidth.value.toString())
-      off(window, 'mousemove', onMouseMove as EventListener);
+      off(window, 'mousemove', onMouseMove as EventListener)
       off(window, 'mouseup', onMouseUp)
       document.onselectstart = null
     }
 
     const onMouseMove = (e: MouseEvent) => {
       if (isCollapse.value) {
-        return;
+        return
       }
 
       if (!cursorDown.value) return
@@ -61,6 +61,18 @@ export default defineComponent({
       }
     }
 
-    return () => <div class="side-drag-bar" {...attrs} onMousedown={(e) => onMouseDown(e)}></div>
+    return () => (
+      <div
+        class="side-drag-bar"
+        {...attrs}
+        onMousedown={e => onMouseDown(e)}
+      ></div>
+    )
   }
 })
+
+// const DragBar = () => {
+//   return <div class="side-drag-bar"></div>
+// }
+
+// export default DragBar

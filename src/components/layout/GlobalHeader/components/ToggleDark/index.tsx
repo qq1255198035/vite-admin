@@ -3,7 +3,7 @@ const isDark = useDark()
 const changeTheme = useToggle(isDark)
 export default defineComponent({
   setup() {
-    let theme = ref('sunny')
+    const theme = ref('sunny')
     const handleToggle = (val: string) => {
       theme.value = val
       changeTheme()
@@ -11,7 +11,7 @@ export default defineComponent({
     return () => {
       return (
         <el-switch
-          model-value= {theme.value}
+          model-value={theme.value}
           class="ml-2"
           inline-prompt
           active-icon="Moon"
@@ -24,6 +24,3 @@ export default defineComponent({
     }
   }
 })
-
-
-

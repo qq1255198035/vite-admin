@@ -1,12 +1,8 @@
 export default defineComponent({
-  name: 'home',
+  name: 'Home',
   setup() {
     return () => {
-      return (
-        <div>
-          Home 222 555555  33
-        </div>
-      )
+      return <div>Home 222 555555 33</div>
     }
   }
 })

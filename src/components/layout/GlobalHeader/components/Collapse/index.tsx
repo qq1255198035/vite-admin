@@ -7,13 +7,17 @@ export default defineComponent({
     const { isCollapse } = storeToRefs(systemInfo)
 
     const handleCollpsed = () => {
-      let collapse = !isCollapse.value
+      const collapse = !isCollapse.value
       systemInfo.setCollapse(collapse)
     }
 
     return () => {
       return (
-        <el-icon size={22} onClick={() => handleCollpsed()} style={{cursor: 'pointer'}}>
+        <el-icon
+          size={22}
+          onClick={() => handleCollpsed()}
+          style={{ cursor: 'pointer' }}
+        >
           {isCollapse.value ? <Expand /> : <Fold />}
         </el-icon>
       )

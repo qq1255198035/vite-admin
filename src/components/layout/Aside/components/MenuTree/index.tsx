@@ -8,9 +8,9 @@ export default defineComponent({
   setup(props: TreeProps) {
     const systemInfo = systemInfoStore()
     const { isCollapse } = storeToRefs(systemInfo)
-    const route = useRoute();
-    const { menu } = toRefs(props);
-    
+    const route = useRoute()
+    const { menu } = toRefs(props)
+
     const wrapProps = reactive({
       props: {
         router: true,
@@ -21,11 +21,15 @@ export default defineComponent({
       style: { borderRight: 'none', height: '100%' }
     })
 
-    return () => {  
+    return () => {
       return (
         <div>
-          <el-menu { ...wrapProps.props } collapse={ isCollapse.value } style={{...wrapProps.style}}>
-            { renderMenuTree(menu.value) }
+          <el-menu
+            {...wrapProps.props}
+            collapse={isCollapse.value}
+            style={{ ...wrapProps.style }}
+          >
+            {renderMenuTree(menu.value)}
           </el-menu>
         </div>
       )

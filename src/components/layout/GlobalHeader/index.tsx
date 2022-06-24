@@ -5,7 +5,7 @@ export default defineComponent({
         <div class="global-header">
           <div>
             <Collapse />
-            <BreadCrumb class="ml-2"/>
+            <BreadCrumb class="ml-2" />
           </div>
           <div>
             <FullScreenCom />
