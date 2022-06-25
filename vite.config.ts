@@ -7,6 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Icons from 'unplugin-icons/vite'
 import Unocss from 'unocss/vite'
+import { createHtmlPlugin } from 'vite-plugin-html'
 import {
   createStyleImportPlugin,
   ElementPlusResolve
@@ -22,13 +23,21 @@ const path = require('path')
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv) => {
   const env = loadEnv(mode, process.cwd())
-  console.log(env.VITE_BASE_URL)
   return {
     base: './',
     plugins: [
       vue(),
       vueJsx(),
       Icons({ compiler: 'vue3', autoInstall: true }),
+      createHtmlPlugin({
+        minify: true,
+        entry: '/src/main.ts',
+        inject: {
+          data: {
+            title: env.VITE_APP_TITLE
+          }
+        }
+      }),
       AutoImport({
         imports: ['vue', 'vue-router'],
         eslintrc: {
@@ -88,15 +97,14 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       }
     },
     server: {
-      host: '0.0.0.0',
+      host: true,
       open: true,
       hmr: {
         overlay: false
       },
       proxy: {
         '/mockapi': {
-          target:
-            'https://www.fastmock.site/mock/b94355a454a22cec575bdedbde5b2cb2/api',
+          target: 'https://www.fastmock.site/mock/b94355a454a22cec575bdedbde5b2cb2/api',
           changeOrigin: true,
           rewrite: pathStr => pathStr.replace(/^\/mockapi/, '')
         }

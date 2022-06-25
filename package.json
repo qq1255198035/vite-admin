@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "yarn dev",
     "dev": "vite && yarn eslint && yarn prettier",
     "build": "vite build",
+    "build:uat": "vite build --mode uat",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit",
     "eslint": "eslint --ext .js,.vue,.ts,.tsx,.jsx --ignore-path .gitignore --fix src",
     "prettier": "prettier --write",
-    "commit":"git-cz"
+    "commit": "git-cz"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.4",
@@ -47,6 +47,7 @@
     "unplugin-icons": "^0.14.1",
     "unplugin-vue-components": "^0.19.6",
     "vite": "^2.9.9",
+    "vite-plugin-html": "^3.2.0",
     "vue-tsc": "^0.34.7"
   },
   "config": {
