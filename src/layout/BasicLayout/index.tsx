@@ -22,9 +22,6 @@ export default defineComponent({
       },
       { deep: true, immediate: true }
     )
-    const onDrag = (val: number) => {
-      num.value = val
-    }
     return () => {
       return (
         <div class="common-layout">
@@ -32,13 +29,12 @@ export default defineComponent({
             <el-aside
               width={isCollapse.value ? '64px' : sideWidth.value + 'px'}
             >
-              <Aside v-drag={(val: number) => onDrag(val)} />
+              <Aside />
               <DragBar />
             </el-aside>
             <el-container>
               <el-header>
                 <GlobalHeader />
-                {num.value}
               </el-header>
               <el-main>
                 <router-view>
