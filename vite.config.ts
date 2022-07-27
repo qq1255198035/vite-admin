@@ -50,6 +50,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
         // see https://github.com/antfu/unplugin-auto-import/pull/23/
         resolvers: [
           /* ... */
+          ElementPlusResolver()
         ],
         dts: './src/auto-imports.d.ts'
       }),
@@ -99,12 +100,14 @@ export default defineConfig(({ mode }: ConfigEnv) => {
     server: {
       host: true,
       open: true,
+      port: 8989,
       hmr: {
         overlay: false
       },
       proxy: {
         '/mockapi': {
-          target: 'https://www.fastmock.site/mock/b94355a454a22cec575bdedbde5b2cb2/api',
+          target:
+            'https://www.fastmock.site/mock/b94355a454a22cec575bdedbde5b2cb2/api',
           changeOrigin: true,
           rewrite: pathStr => pathStr.replace(/^\/mockapi/, '')
         }

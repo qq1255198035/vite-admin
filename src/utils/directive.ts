@@ -1,11 +1,11 @@
-import { App } from 'vue'
-const Vdrag = (app: App<Element>) => {
+import { App, createVNode, VNode, render } from 'vue'
+import Loading from '@/components/common/Loading'
+const Vdrag = (app: App) => {
   app.directive('drag', {
     mounted(el, bindings) {
       let cursorDown = false
       let clientX = 0
       let move = 0
-      const numArr: number[] = []
       el.addEventListener(
         'mousedown',
         (e: MouseEvent) => {
@@ -35,8 +35,19 @@ const Vdrag = (app: App<Element>) => {
     }
   })
 }
+
+const globalLoading = (app: App) => {
+  const vnode: VNode = createVNode(Loading)
+  render(vnode, document.body)
+  app.config.globalProperties.$loading = {
+    show: vnode.component?.exposed?.show,
+    hide: vnode.component?.exposed?.hide
+  }
+}
+
 export default {
-  install: (app: App<Element>) => {
+  install: (app: App) => {
     Vdrag(app)
+    globalLoading(app)
   }
 }

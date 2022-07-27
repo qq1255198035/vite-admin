@@ -1,3 +1,7 @@
 @use "./reset.scss";
 @use "./public.scss";
 @use "./mixin.scss";
+
+:root {
+  --el-color-primary: rgb(0, 255, 157);
+}

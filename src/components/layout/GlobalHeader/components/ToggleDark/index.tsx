@@ -14,8 +14,8 @@ export default defineComponent({
           model-value={theme.value}
           class="ml-2"
           inline-prompt
-          active-icon="Moon"
-          inactive-icon="Sunny"
+          active-icon="Sunny"
+          inactive-icon="Moon"
           active-value="sunny"
           inactive-value="moon"
           onChange={(val: string) => handleToggle(val)}

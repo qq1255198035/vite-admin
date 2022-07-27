@@ -35,6 +35,7 @@ declare module '@vue/runtime-core' {
     FullScreenCom: typeof import('./components/layout/GlobalHeader/components/FullScreenCom/index.tsx')['default']
     GlobalFooter: typeof import('./components/layout/GlobalFooter/index.tsx')['default']
     GlobalHeader: typeof import('./components/layout/GlobalHeader/index.tsx')['default']
+    Loading: typeof import('./components/common/Loading/index.tsx')['default']
     MenuTree: typeof import('./components/layout/Aside/components/MenuTree/index.tsx')['default']
     RenderMenuTree: typeof import('./components/layout/Aside/components/MenuTree/renderMenuTree.tsx')['default']
     RenderTreeNode: typeof import('./components/layout/Aside/components/MenuTree/renderTreeNode.tsx')['default']
