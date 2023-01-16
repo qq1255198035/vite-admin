@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
 import { getToken } from '@/utils/cookies'
 import { ICodeMessage } from './axios-types'
-
+// import.meta.env.MODE: {string} 应用运行的模式。
 const http = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
   timeout: 5000
