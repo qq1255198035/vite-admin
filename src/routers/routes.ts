@@ -23,16 +23,16 @@ const routes = [
           keepAlive: true
         },
         component: () => import('@/view/components')
+      },
+      {
+        path: '/404',
+        name: '404',
+        meta: {
+          keepAlive: true
+        },
+        component: () => import('@/view/404')
       }
     ]
-  },
-  {
-    path: '/404',
-    name: '404',
-    meta: {
-      keepAlive: true
-    },
-    component: () => import('@/view/404')
   },
   {
     path: '/login',

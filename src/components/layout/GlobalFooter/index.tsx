@@ -5,5 +5,4 @@ const globalFooter = () => {
     </div>
   )
 }
-
 export default globalFooter
