@@ -50,8 +50,10 @@ router.beforeEach(async (to, from, next) => {
   }
   NProgress.start()
 })
-router.afterEach(() => {
+router.afterEach(to => {
   NProgress.done()
+  const title = import.meta.env.VITE_APP_TITLE
+  document.title = to.meta.title ? `${to.meta.title} - ${title}` : title
 })
 
 export default router
