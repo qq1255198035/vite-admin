@@ -3,9 +3,18 @@ import App from './App.vue'
 import { createPinia } from 'pinia'
 import router from './routers'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-import '@/assets/styles/index.scss'
 import 'uno.css'
-import directive from './utils/directive'
+// reset style sheet
+import '@/assets/styles/reset.scss'
+// CSS common style sheet
+import '@/assets/styles/common.scss'
+// element dark(内置暗黑模式)
+import 'element-plus/theme-chalk/dark/css-vars.css'
+// custom element dark(自定义暗黑模式)
+import '@/assets/styles/theme/element-dark.scss'
+// custom element css
+import '@/assets/styles/element.scss'
+import globalLoading from '@/components/common/Loading'
 const pinia = createPinia()
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
@@ -34,5 +43,5 @@ app.config.globalProperties.$filters = {
 
 app.use(pinia)
 app.use(router)
-app.use(directive)
+app.use(globalLoading)
 app.mount('#app')

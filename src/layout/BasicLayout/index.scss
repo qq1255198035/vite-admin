@@ -1,56 +1,56 @@
 @import '@/assets/styles/mixin.scss';
-.common-layout{
-  color: var(--color-primary);
+.common-layout {
+  color: $primary-color;
   height: 100%;
-  .el-container{
+  .el-container {
     height: 100%;
-    .el-main{
+    .el-main {
       overflow: hidden;
-      > div{
+      > div {
         height: 100%;
       }
     }
-    .global-header{
+    .global-header {
       height: 100%;
       @include flex-direction-style($justify-content: space-between);
       @include border-style(bottom);
-      > div{
+      > div {
         @include flex-direction-style();
       }
-      .full-screen{
+      .full-screen {
         @include flex-direction-style();
         cursor: pointer;
       }
-      .user-ceter{
+      .user-ceter {
         @include flex-direction-style();
-        .el-dropdown{
+        .el-dropdown {
           cursor: pointer;
           margin-left: 10px;
-          .el-dropdown-link{
+          .el-dropdown-link {
             @include flex-direction-style();
           }
         }
       }
-      .breadcrumb-box{
-        .el-breadcrumb__inner{
+      .breadcrumb-box {
+        .el-breadcrumb__inner {
           @include flex-direction-style();
-          .breadcrumb-span{
+          .breadcrumb-span {
             @include flex-direction-style();
             cursor: pointer;
           }
         }
       }
     }
-    .global-footer{
+    .global-footer {
       height: 100%;
       @include flex-direction-style();
-      @include border-style(top)
+      @include border-style(top);
     }
     .el-aside {
       position: relative;
       // transition: width 0.3s ease;
       overflow: visible;
-      .aside{
+      .aside {
         height: 100%;
       }
       .side-drag-bar {
@@ -70,11 +70,11 @@
         }
       }
     }
-    .main-logo{
+    .main-logo {
       @include flex-direction-style();
       @include border-style(bottom);
       padding: 7px 0;
-      img{
+      img {
         height: 45px;
       }
     }

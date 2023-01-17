@@ -87,7 +87,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       preprocessorOptions: {
         //define global scss variable
         scss: {
-          additionalData: `@use '@/assets/styles/element/index.scss' as *;`
+          additionalData: `@use '@/assets/styles/var.scss' as *;`
         }
       }
     },
