@@ -21,6 +21,8 @@ export type userInfoState = {
   sideWidth: number
   breadList: menuData
   navList: menuData
+  primaryColor: string
+  isDark: boolean
 }
 export interface ILoginParams {
   name: string

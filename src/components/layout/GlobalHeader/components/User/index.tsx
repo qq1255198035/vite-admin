@@ -8,7 +8,12 @@ const User = () => {
         v-slots={{
           dropdown: () => (
             <el-dropdown-menu>
-              <el-dropdown-item icon="Refresh">清除缓存</el-dropdown-item>
+              <el-dropdown-item
+                icon="Refresh"
+                onClick={() => systemInfo.removeSessionStorage()}
+              >
+                清除缓存
+              </el-dropdown-item>
               <el-dropdown-item
                 icon="SwitchButton"
                 onClick={() => systemInfo.loginOut()}

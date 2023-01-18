@@ -2,11 +2,17 @@ const TokenKey = 'access_token'
 const SideWidth = 'side_width'
 const BreadList = 'bread_list'
 const MenuList = 'menu_list'
+const PrimaryColor = 'primary_color'
 
 export const getToken = () => sessionStorage.getItem(TokenKey)
 export const setToken = (token: string) =>
   sessionStorage.setItem(TokenKey, token)
 export const removeToken = () => sessionStorage.removeItem(TokenKey)
+
+export const getPrimaryColor = () => sessionStorage.getItem(PrimaryColor)
+export const setPrimaryColor = (color: string) =>
+  sessionStorage.setItem(PrimaryColor, color)
+export const removePrimaryColor = () => sessionStorage.removeItem(PrimaryColor)
 
 export const getSideWidth = () => sessionStorage.getItem(SideWidth)
 export const setSideWidth = (width: string) =>

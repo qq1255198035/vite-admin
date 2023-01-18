@@ -15,6 +15,7 @@ import '@/assets/styles/theme/element-dark.scss'
 // custom element css
 import '@/assets/styles/element.scss'
 import globalLoading from '@/components/common/Loading'
+import directives from '@/directives/index'
 const pinia = createPinia()
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
@@ -44,4 +45,5 @@ app.config.globalProperties.$filters = {
 app.use(pinia)
 app.use(router)
 app.use(globalLoading)
+app.use(directives)
 app.mount('#app')

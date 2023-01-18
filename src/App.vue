@@ -3,6 +3,10 @@
     <router-view></router-view>
   </el-config-provider>
 </template>
+<script setup lang="ts">
+import { useTheme } from '@/hooks/useTheme'
+useTheme()
+</script>
 <style lang="scss" scoped>
 :global(#app) {
   width: 100%;

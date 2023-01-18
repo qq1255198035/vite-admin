@@ -12,14 +12,16 @@ import {
   removeSideWidth,
   setMenuList,
   getMenuList as getMenuListFromcoocikes,
-  removeMenuList
+  removeMenuList,
+  setPrimaryColor,
+  removePrimaryColor
 } from '@/utils/cookies'
 import config from '@/config'
 import router from '@/routers'
 import { userInfoState, ILoginParams } from '@/types/sys'
 import { loginIn, getMenuList } from '@/api/common'
 
-const { MIN_SIDE_WIDTH } = config
+const { MIN_SIDE_WIDTH, DEFAULT_PRIMARY_COLOR } = config
 
 const transfromArr = (list: menuData): any => {
   return list.reduce((prev, next) => {
@@ -36,9 +38,18 @@ export const systemInfoStore = defineStore('system', {
     breadList: JSON.parse(getBreadList() as string),
     token: getToken() || '',
     isCollapse: false,
-    sideWidth: parseInt(getSideWidth() as string)
+    sideWidth: parseInt(getSideWidth() as string),
+    primaryColor: DEFAULT_PRIMARY_COLOR,
+    isDark: false
   }),
   actions: {
+    setIsDark(flag: boolean) {
+      this.isDark = flag
+    },
+    setPrimaryColor(color: string) {
+      this.primaryColor = color
+      setPrimaryColor(color)
+    },
     setNavList(list: menuData) {
       this.navList = transfromArr(list)
       this.breadList = [this.navList[0]]
@@ -64,6 +75,14 @@ export const systemInfoStore = defineStore('system', {
       removeBreadList()
       removeSideWidth()
       removeMenuList()
+      router.replace('/login')
+    },
+    removeSessionStorage() {
+      removeToken()
+      removeBreadList()
+      removeSideWidth()
+      removeMenuList()
+      removePrimaryColor()
       router.replace('/login')
     },
     async loginIn(params: ILoginParams) {

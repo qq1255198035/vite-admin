@@ -1,5 +1,6 @@
 import { ComponentInternalInstance } from 'vue'
-import { useCssVar } from '@vueuse/core'
+import { useTheme } from '@/hooks/useTheme'
+const { changePrimary } = useTheme()
 export default defineComponent({
   name: 'Home',
   setup() {
@@ -14,9 +15,7 @@ export default defineComponent({
     }
 
     const changeColor = () => {
-      const el = ref(null)
-      const color = useCssVar('--el-color-primary', el)
-      color.value = 'green'
+      changePrimary('#18BAAC')
     }
 
     return () => {
@@ -31,6 +30,7 @@ export default defineComponent({
           <el-button type="primary" onClick={() => changeColor()}>
             changeColor
           </el-button>
+          <el-button v-copy="复制">复制</el-button>
         </div>
       )
     }

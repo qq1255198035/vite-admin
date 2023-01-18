@@ -10,13 +10,13 @@ export default defineComponent({
     const { isCollapse } = storeToRefs(systemInfo)
     const route = useRoute()
     const { menu } = toRefs(props)
-
+    const activeMenu = computed(() => route.name)
     const wrapProps = reactive({
       props: {
         router: true,
         uniqueOpened: true,
         collapseTransition: false,
-        defaultActive: route.name
+        defaultActive: activeMenu
       },
       style: { borderRight: 'none', height: '100%' }
     })

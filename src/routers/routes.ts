@@ -12,7 +12,8 @@ const routes = [
         path: '/home',
         name: 'home',
         meta: {
-          keepAlive: true
+          keepAlive: true,
+          title: '首页'
         },
         component: () => import('@/view/home')
       },
@@ -20,7 +21,8 @@ const routes = [
         path: '/components',
         name: 'components',
         meta: {
-          keepAlive: true
+          keepAlive: true,
+          title: '组件'
         },
         component: () => import('@/view/components')
       },
@@ -28,7 +30,8 @@ const routes = [
         path: '/404',
         name: '404',
         meta: {
-          keepAlive: true
+          keepAlive: true,
+          title: '404'
         },
         component: () => import('@/view/404')
       }
